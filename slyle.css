@@ -1,0 +1,85 @@
+/* Fonte e estrutura */
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .w3-sidebar {
+    width: 120px;
+    background: #222;
+  }
+  
+  #main {
+    margin-left: 120px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #main {
+      margin-left: 0;
+    }
+  }
+  
+  /* Sobre Mim */
+  .bg-blur {
+    background: url("IMG-20241207-WA0097.jpg") no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(4px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+  
+  .perfil-fixado {
+    position: absolute;
+    top: 30px;
+    left: 160px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Projetos */
+  .projeto-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    border-radius: 8px;
+  }
+  
+  .projeto-img:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Formulário */
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  input[type="submit"], input[type="reset"] {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #555;
+  }
+  
+  /* Rodapé */
+  footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    color: grey;
+  }
+  

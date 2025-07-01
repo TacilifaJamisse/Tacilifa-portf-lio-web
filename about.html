@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <title>Portfólio | Tacilifa Jamisse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Montserrat", sans-serif;
+    }
+    body {
+      background-color: #F5F5DC;
+      color: #3E2723;
+      margin: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #E0E0E0;
+    }
+    .dark-mode .info-card,
+    .dark-mode .quadro,
+    .dark-mode footer {
+      background-color: #1E1E1E;
+      color: #E0E0E0;
+    }
+    .dark-mode .info-card i,
+    .dark-mode footer a {
+      color: #FFD180;
+    }
+    .dark-mode .foto-item p {
+      color: #FFD180;
+    }
+    .modo-escuro-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #5D4037;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .modo-escuro-btn:hover {
+      background-color: #3E2723;
+    }
+    .w3-sidebar {
+      width: 90px;
+      background: #5D4037;
+    }
+    #main {
+      margin-left: 90px;
+      position: relative;
+    }
+    @media only screen and (max-width: 600px) {
+      #main {
+        margin-left: 0;
+      }
+    }
+    .perfil-fixado {
+      position: absolute;
+      top: 20px;
+      left: 100px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+    header {
+      padding: 100px 16px 60px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    header p {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      font-size: 16px;
+    }
+    .subtitulo {
+      font-size: 20px;
+      color: #5D4037;
+      margin-bottom: 30px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 900px;
+    }
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background-color: #FFF3E0;
+      padding: 16px 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    }
+    .info-card i {
+      font-size: 24px;
+      color: #795548;
+      margin-top: 6px;
+      min-width: 30px;
+    }
+    .info-card h4 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+    .info-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #5D4037;
+    }
+    @media (min-width: 700px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .grid-historia {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .quadro {
+      background-color: #FFF3E0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .quadro:hover {
+      transform: scale(1.03);
+    }
+    .foto-legenda {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .foto-legenda img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .foto-legenda p {
+      margin-top: 8px;
+      font-style: italic;
+      color: #5D4037;
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .foto-item {
+      text-align: center;
+    }
+    .foto-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    .foto-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+    }
+    .foto-item p {
+      margin-top: 8px;
+      color: #5D4037;
+      font-style: italic;
+      font-size: 14px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a {
+      margin: 0 10px;
+      color: #5D4037;
+      font-size: 28px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #A1887F;
+    }
+    .w3-modal img {
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Botão modo escuro -->
+<button class="modo-escuro-btn" onclick="alternarModo()">🌙 Modo Escuro</button>
+
+<script>
+  function alternarModo() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>
+
+
+<!-- Barra lateral -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <a href="index.html" class="w3-bar-item w3-button w3-hover-opacity"><i class="fa fa-home w3-xlarge"></i><p>Home</p></a>
+  <a href="about.html" class="w3-bar-item w3-button w3-hover-opacity w3-brown"><i class="fa fa-user w3-xlarge"></i><p>Sobre</p></a>
+  <a href="projects.html" class="w3-bar-item w3-button w3-hover-opacity"><i class="fa fa-folder-open w3-xlarge"></i><p>Projetos</p></a>
+  <a href="contact.html" class="w3-bar-item w3-button w3-hover-opacity"><i class="fa fa-envelope w3-xlarge"></i><p>Contacto</p></a>
+</nav>
+
+<!-- Conteúdo principal -->
+<div id="main" class="w3-padding-large">
+  <img src="IMG-20241207-WA0097.jpg" alt="Tacilifa Jamisse" class="perfil-fixado">
+
+  <header>
+    <h1>Tacilifa Jamisse</h1>
+    <div class="subtitulo">Estudante de Informática • Criadora Visual • Apaixonada por Confeitaria</div>
+    <p>Natural de Maputo e estudante na Universidade Técnica Diogo Eugénio Guilande, tenho a paixão de transformar ideias em soluções que encantam seja com linhas de código ou com glacê doce. Criar beleza e funcionalidade é o que me move todos os dias!</p>
+  </header>
+
+  <section class="w3-container">
+    <div class="info-grid">
+      <div class="info-card"><i class="fa fa-user"></i><div><h4>Filiação</h4><p>Ercenio Jamisse & Maria da Gizela Vidigal</p></div></div>
+      <div class="info-card"><i class="fa fa-graduation-cap"></i><div><h4>Formação</h4><p>Licenciatura em Informática, 3º ano</p></div></div>
+      <div class="info-card"><i class="fa fa-code"></i><div><h4>Skills de TI</h4><p>HTML, CSS, JavaScript, Python</p></div></div>
+      <div class="info-card"><i class="fa fa-language"></i><div><h4>Idiomas</h4><p>Português (fluente)</p></div></div>
+      <div class="info-card"><i class="fa fa-birthday-cake"></i><div><h4>Outros Gostos</h4><p>Confeitaria e decoração de bolos</p></div></div>
+    </div>
+  </section>
+
+  <section class="w3-container">
+    <h2 class="w3-center w3-padding-16">Minha Jornada</h2>
+    <div class="grid-historia">
+      <div class="quadro"><h4>👧 Onde tudo começou</h4><p>
+Desde pequena, sempre fui apaixonada por livros e vídeos de receitas. Enquanto muita gente via desenho animado, eu estava vidrada nas misturas, coberturas e segredos da confeitaria! 📚🍫 Lembro que, com 9 anos, minha família já me chamava de ‘a boleira’ e dizia: ‘Você não tem mais nada para fazer além de ficar enfiada dentro de casa fazendo receitas?’ 😅 Com uma colher na mão e muita curiosidade no coração, fui transformando essa paixão em prática (e em muita bagunça na cozinha também!). Hoje, cada doce que faço carrega um pedacinho daquela criança sonhadora que acreditava que amor também se mede em colheres de açúcar. 💕🎂🍰.</p></div>
+      <div class="quadro"><h4>💻 Primeiros passos</h4><p>Tudo começou quando aprendi HTML e CSS — de repente, a curiosidade pela programação só cresceu! No começo, escolhi o curso de Engenharia Informática na universidade meio que por acaso... Na época, havia apenas uma mulher inscrita na turma, e isso me fez pensar: “Por que só uma?” Foi esse questionamento que me motivou a me inscrever.
+
+Quando entrei na sala de aula e fui recebida com aplausos, senti que realmente aquele seria meu lugar. Meses depois, participei do Code Like a Girl, uma iniciativa da Vodacom para jovens mulheres interessadas em desenvolver suas habilidades em HTML, CSS e JavaScript. Também mergulhei em eventos como o Wohshowps e projetos com Django, que só aumentaram minha paixão e confiança nessa área.
+
+Hoje, cada linha de código é uma conquista, e a vontade de aprender nunca para! 🚀✨.</p></div>
+      <div class="quadro"><h4>🎨 Confeitaria</h4><p>Decorar bolos virou uma forma única de expressar minha arte e sentimentos.
+Acredito que cada pessoa tem sua própria linguagem do amor a minha é feita de texturas, cores e sabores. Preparar bolos, sobremesas, doces e até salgados não é só uma tarefa, é uma maneira de transmitir carinho, cuidado e afeto para as pessoas que amo.
+
+A confeitaria me proporcionou algo que poucas coisas conseguem: a chance de transformar ingredientes simples em verdadeiras obras de arte que emocionam e conectam. Cada detalhe, cada camada, cada decoração é pensada com dedicação e amor, porque para mim, fazer um bolo é mais do que uma receita é um gesto de amor que fala diretamente ao coração.
+
+Essa é a minha arte, meu jeito de encantar o mundo e deixar uma marca doce na vida de quem me rodeia. 🎂💖✨.</p></div>
+      <div class="quadro"><h4>🚀 Hoje</h4><p>Hoje, busco unir tecnologia, design e criatividade em tudo que crio.
+Acredito que a verdadeira inovação surge quando esses três elementos se encontram e se complementam. A tecnologia oferece ferramentas poderosas, o design dá forma e beleza, e a criatividade traz o toque humano e único que transforma uma ideia comum em algo extraordinário.
+
+Essa união me permite explorar soluções inovadoras, contar histórias envolventes e criar experiências que impactam pessoas de maneiras profundas. Cada projeto é uma oportunidade de aprender, crescer e deixar uma marca que vá além do visual algo que inspire, conecte e faça a diferença.
+
+Para mim, criar é mais do que um trabalho: é uma paixão que me impulsiona a buscar sempre o melhor, desafiando limites e expandindo horizontes. E é assim que sigo, unindo tecnologia, design e criatividade para construir o futuro que quero ver. 🚀✨.</p></div>
+    </div>
+  </section>
+
+
+  <!-- Galeria -->
+  <section class="w3-container">
+    <h2 class="w3-center w3-padding-32">Galeria de Fotos</h2>
+    <div class="galeria-grid">
+      <div class="foto-item"><img src="IMG-20250624-WA0126.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0129.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0133.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0134.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0136.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0142(1).jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0143.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0125.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0147(1).jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250519-WA0047.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20241016-WA0039(1).jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0124.jpg" alt="" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0123.jpg" alt="CSS" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20250624-WA0148.jpg" alt="CSS" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+      <div class="foto-item"><img src="IMG-20241214-WA0048.jpg" alt="CSS" ondblclick="ampliar(this)" onclick="ampliar(this)" /><p></p></div>
+    </div>
+  </section>
+
+  <!-- Modal de imagem -->
+  <div id="modal-img" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom" style="max-width:800px">
+      <img id="imagem-ampliada" src="" style="width:100%">
+    </div>
+  </div>
+
+  <!-- Botão para projetos -->
+<div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">
+  <a href="projects.html" 
+     class="w3-button w3-brown w3-round-xlarge w3-hover-shadow" 
+     style="padding: 14px 32px; font-size: 17px; display: inline-block; transition: transform 0.3s ease;"
+     onmouseover="this.style.transform='scale(1.05)'" 
+     onmouseout="this.style.transform='scale(1)'">
+    <i class="fa fa-lightbulb-o" style="margin-right: 8px;"></i>Descubra meus trabalhos criativos
+  </a>
+</div>
+
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Tacilifa Jamisse</p>
+    <a href="#"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="#"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="#"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </footer>
+</div>
+
+<!-- Script para ampliar -->
+<script>
+  function ampliar(img) {
+    document.getElementById("imagem-ampliada").src = img.src;
+    document.getElementById("modal-img").style.display = "block";
+  }
+</script>
+
+</body>
+</html> 
